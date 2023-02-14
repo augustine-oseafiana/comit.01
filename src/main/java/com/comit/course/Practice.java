@@ -16,10 +16,19 @@ public class Practice {
 		float f = 5.3F;
 		     
 		     System.out.println(f);
-		
 		     
-        
-        
+		int b = 1234;
+		int c = 532;
+		int d = a + b;
+		
+		     System.out.println(d);
+		     
+		int e = 1234;
+		int g = 532;
+		int i = e - g;
+		 
+		     System.out.println(i);
+	
 	}
 
 }
