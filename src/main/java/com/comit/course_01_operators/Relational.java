@@ -8,6 +8,7 @@ class Relational {
 
        int a = 10;
        int b = 8;
+       int c = 12;
        
        boolean equalTo          = a == b;
        boolean notEqual       = a != b;
@@ -16,12 +17,18 @@ class Relational {
        boolean greaterThanEqual = a >= b;
        boolean lessThanEqual    = a <= b;
        
+       
+       boolean exp = (a == b) && (c >= b) || (a > c);
+       /*             false   and  true */
+       /*             false */
+       
        System.out.println("Equal To: " + equalTo);
        System.out.println("Not Equal To: " + notEqual);
        System.out.println("Greater Than: " +  greaterThan);
        System.out.println("Less Than: " + lessThan);
        System.out.println("Greate Than Equals To: " + greaterThanEqual);
        System.out.println("Less Than Equals To: " + lessThanEqual);
+       System.out.println("Expression: " + exp);
 
 
 
