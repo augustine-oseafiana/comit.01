@@ -47,6 +47,7 @@ public class IfStatement {
     		   System.out.println("a is equal to  c");
     	   }
        }
+	
 	}
-
+	
 }
