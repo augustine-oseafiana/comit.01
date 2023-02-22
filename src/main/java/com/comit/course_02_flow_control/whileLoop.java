@@ -11,15 +11,17 @@ public class whileLoop {
 		
 		
 		while(i < 10) {
-			
+				
+			System.out.println(i);
 			++i;
-		    
+			
+		    /*
 			if (i==5) {
 				//break; breaks out the loop
 				continue; // continue with the next iteration
-			}
+			}*/
 			
-			System.out.println(i);
+			
 		}
 		
 		i = 0;
