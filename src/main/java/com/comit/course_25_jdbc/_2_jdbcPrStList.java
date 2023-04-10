@@ -3,16 +3,16 @@
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import com.comit.course_25_jdbc.bean.User;
 
-public class _1_jdbcStmtList {
+public class _2_jdbcPrStList {
 
 	public static void main(String[] args) {
 		
@@ -22,19 +22,23 @@ public class _1_jdbcStmtList {
 		
 		List<User> users = new ArrayList<>();
 		
-		String sql = "SELECT * FROM USER WHERE ID_USER=";
-		String input = null;
+		// Avoid SQL Injection Attacks with Prepared Statements
+		String sql = "SELECT * FROM USER WHERE ID_USER= ?";
+		
+		int input;
 		try(Scanner scan = new Scanner(System.in);) {
 			System.out.print("Enter the idUser: ");
-			input = scan.nextLine();
+			input = scan.nextInt();
 		}
 		
-	
-		try(Connection con = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
-			Statement st = con.createStatement();
-			ResultSet rs = st.executeQuery(sql + input);) {
+	    try(Connection con = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+			PreparedStatement st = con.prepareStatement(sql);) {
 			
-			System.out.println("Query: " + sql +input);
+			st.setInt(1, input);
+			
+			ResultSet rs = st.executeQuery();
+			 
+			System.out.println("Query:" + sql);
 			
 			while(rs.next()) {
 				int idUser = rs.getInt("ID_USER");
